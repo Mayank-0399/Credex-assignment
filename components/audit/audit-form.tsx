@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { tools } from "@/lib/tools";
 
 import AuditResults from "./audit-results";
+import AISummary from "./ai-summary";
+import LeadCapture from "./lead-capture";
 
 import { runAudit, AuditResult } from "@/lib/audit-engine";
 
@@ -30,6 +32,8 @@ export default function AuditForm() {
   const [useCase, setUseCase] = useState("coding");
 
   const [results, setResults] = useState<AuditResult[]>([]);
+
+  const [summary, setSummary] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem("audit-form");
@@ -89,10 +93,35 @@ export default function AuditForm() {
     setEntries(updated);
   }
 
-  function generateAudit() {
+  async function generateAudit() {
     const auditResults = runAudit(entries);
 
     setResults(auditResults);
+
+    try {
+      const response = await fetch("/api/summary", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          results: auditResults,
+        }),
+      });
+
+      const data = await response.json();
+
+      setSummary(data.summary);
+
+    } catch (error) {
+      console.error(error);
+
+      setSummary(
+        "Your audit identified opportunities to improve AI spending efficiency."
+      );
+    }
   }
 
   return (
@@ -254,6 +283,14 @@ export default function AuditForm() {
 
       {results.length > 0 && (
         <AuditResults results={results} />
+      )}
+
+      {summary && (
+        <AISummary summary={summary} />
+      )}
+
+      {results.length > 0 && (
+        <LeadCapture />
       )}
     </>
   );
