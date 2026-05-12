@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/navigation";
+
+import { v4 as uuidv4 } from "uuid";
+
 import { tools } from "@/lib/tools";
+
+import { saveAudit } from "@/lib/share";
 
 import AuditResults from "./audit-results";
 import AISummary from "./ai-summary";
@@ -18,6 +24,8 @@ type ToolEntry = {
 };
 
 export default function AuditForm() {
+  const router = useRouter();
+
   const [entries, setEntries] = useState<ToolEntry[]>([
     {
       tool: "Cursor",
@@ -114,6 +122,15 @@ export default function AuditForm() {
       const data = await response.json();
 
       setSummary(data.summary);
+
+      const auditId = uuidv4();
+
+      saveAudit(auditId, {
+        results: auditResults,
+        summary: data.summary,
+      });
+
+      router.push(`/audit/${auditId}`);
 
     } catch (error) {
       console.error(error);
