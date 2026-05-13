@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 
 import { getAudit } from "@/lib/share";
 
+import LeadCapture from "@/components/audit/lead-capture";
+
 export default function AuditPage() {
   const params = useParams();
 
@@ -98,6 +100,10 @@ export default function AuditPage() {
             {audit.summary}
           </p>
         </section>
+
+        <div className="mt-10">
+          <LeadCapture />
+        </div>
       </div>
     </main>
   );
