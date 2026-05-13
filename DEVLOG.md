@@ -37,7 +37,7 @@
 
 ## Day 2 — 2026-05-08
 
-**Hours worked:** 6
+**Hours worked:** 4
 
 ### What I did
 - Built dynamic AI tool input form
@@ -69,7 +69,7 @@
 
 ## Day 3 — 2026-05-09
 
-**Hours worked:** 7
+**Hours worked:** 3
 
 ### What I did
 - Built audit engine logic
@@ -101,7 +101,7 @@
 
 ## Day 4 — 2026-05-10
 
-**Hours worked:** 7
+**Hours worked:** 3
 
 ### What I did
 - Built personalized audit summary generation system
@@ -132,7 +132,7 @@
 
 ## Day 5 — 2026-05-10
 
-**Hours worked:** 6
+**Hours worked:** 3
 
 ### What I did
 - Set up Supabase project
@@ -166,22 +166,116 @@
 
 ---
 
-## Overall Reflection So Far
+## Day 6 — 2026-05-11
 
-### Biggest improvements
-- Better understanding of full-stack product architecture
-- Improved React state management skills
-- Stronger understanding of backend API integration
-- Learned how to structure SaaS-style workflows
+**Hours worked:** 4
 
-### Most difficult part
-- Designing believable financial recommendation logic
-- Managing multiple moving parts across frontend, backend, and database
+### What I did
+- Added shareable audit report URLs
+- Implemented dynamic route handling using Next.js App Router
+- Built localStorage-based audit persistence
+- Created public audit report pages
+- Added automated testing using Vitest
+- Added GitHub Actions CI pipeline
+- Configured automated test execution on pushes to main branch
 
-### Current project status
-- Functional full-stack MVP completed
-- Dynamic frontend working
-- Audit engine working
-- Personalized summaries working
-- Database persistence working
-- Lead capture system working
+### What I learned
+- Dynamic routing in newer Next.js versions behaves differently with async params
+- Automated testing improves confidence during refactoring
+- CI/CD pipelines make projects look significantly more production-ready
+
+### Challenges faced
+- Handling route params correctly in App Router client components
+- Vitest path alias resolution issues
+- Empty test suite failures
+
+### How I solved them
+- Switched to useParams() from next/navigation
+- Replaced path aliases with relative imports inside tests
+- Removed empty placeholder test files
+
+### Plan for next day
+- Deploy application
+- Finalize documentation
+- Add architecture and GTM documents
+
+---
+
+## Day 7 — 2026-05-12
+
+**Hours worked:** 1
+
+### What I did
+- Deployed project to Vercel
+- Added production environment variables
+- Verified production database integration
+- Completed README documentation
+- Added architecture documentation
+- Added GTM and monetization documentation
+- Performed final production testing
+- Verified CI pipeline execution on GitHub
+
+### What I learned
+- Deployment workflows require careful environment configuration
+- Production testing is different from local development testing
+- Good documentation significantly improves project professionalism
+
+### Challenges faced
+- Understanding Vercel root directory configuration
+- Ensuring environment variables worked correctly in production
+- Testing deployed API integrations safely
+
+### How I solved them
+- Verified repository structure before deployment
+- Added production environment variables manually
+- Tested end-to-end flows after deployment
+
+### Final Reflection
+This project helped me understand how full-stack SaaS products are structured end-to-end. I improved significantly in frontend architecture, backend API design, database integration, deployment workflows, testing, and CI/CD practices. The biggest learning was understanding how product decisions, engineering tradeoffs, and user workflows connect together in real applications.
+
+---
+
+# Overall Project Outcome
+
+## Final Features
+- Dynamic AI audit form
+- Audit recommendation engine
+- Savings calculations
+- Personalized summaries
+- Shareable audit URLs
+- Lead capture backend
+- Supabase persistence
+- Automated tests
+- GitHub Actions CI
+- Production deployment
+
+---
+
+## Final Tech Stack
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- TailwindCSS
+
+### Backend
+- Next.js API Routes
+
+### Database
+- Supabase
+
+### Testing
+- Vitest
+
+### Deployment
+- Vercel
+
+---
+
+## Biggest Takeaways
+- Full-stack architecture design
+- SaaS workflow implementation
+- CI/CD fundamentals
+- Deployment and environment management
+- Product-oriented engineering thinking
